@@ -1,0 +1,70 @@
+<div class='row'>
+  <div class='span2'>
+    <h4>Friends</h4>
+    <ul class='friendlist'>
+      {{#friends}}
+      <li><a href='#user/{{name}}'><img src='images/{{img}}'>{{name}}</a></li>
+      {{/friends}}
+    </ul>
+  </div>
+  <div class='span8'>
+    <h4>Game development in Wuppertal</h4>
+
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+      <li><a href="#members" data-toggle="tab">Members</a></li>
+      <li><a href="#tags" data-toggle="tab">Tags</a></li>
+      <li><a href="#admin" data-toggle="tab">Admin</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+	<div class='long_posts'>
+	  <div class='long_post'>
+	    <div class='user'><div class='name'>Purple</div><img src='images/photo.jpg'></div>
+	    <h4>My longer blogging post</h4>
+	    <div class='content'>
+	      Balbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfn u
+	      Balbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfnBalbablablasidf wluf lweufhlssdiuvh sldvn wleiuv lewiubv sdliubsv lwuefmlusdn vliusydn lsudfn
+	    </div>
+	  </div>
+	</div>
+
+      </div>
+      <div class="tab-pane" id="members">...members</div>
+      <div class="tab-pane" id="tags">...Tagging</div>
+      <div class="tab-pane" id="admin">
+	<h4>Settings</h4>
+	<form>
+	  <p>Read Access</p>
+	  <div class='btn-group' data-toggle='buttons-radio'>
+	    <button type='button' class='btn'>Member only</button>
+	    <button type='button' class='btn'>Everyone</button>
+	  </div>
+	  <p>Write Access</p>
+	  <div class='btn-group' data-toggle='buttons-radio'>
+	    <button type='button' class='btn'>Member only</button>
+	    <button type='button' class='btn'>Everyone</button>
+	  </div>
+
+	</form>	
+
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+	//	      $('#myTab a:last').tab('show');
+      })
+    </script>
+  </div>
+  <div class='span2'>
+    <h4>Groups</h4>
+    <ul class='groups'>
+      {{#groups}}
+      <li><a href='#group/{{name}}'>{{name}} <span class='location'>{{location}}</span></a></li>
+      {{/groups}}
+    </ul>
+  </div>
+</div>
+

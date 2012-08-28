@@ -1,9 +1,7 @@
 $(function() {
 
-
-
   $("#signIn").submit(function() {
-    location.href="/user.html";
+    location.href="#user";
     $("#signIn").hide();
     return false;
   });
@@ -22,9 +20,6 @@ $(function() {
     var map = new google.maps.Map(document.getElementById("map_canvas"),
 	myOptions);
   }
-
-
-
 
   function handle_geolocation_query(position){
     initialize_maps(position.coords.latitude, position.coords.longitude);
@@ -46,7 +41,15 @@ $(function() {
     }
   };
 
-
+  // get template, use mustache and put into el
+  window.stich=function(el,file,model) {
+    $.get(file,function(result) {
+      if(result.match(/.*html.*/)) {
+	result=$("#contentBody",$("<div>"+result+"</div>")).html();
+      }
+      $(el).html(Mustache.render(result,model));
+    });
+  };
 
   var Workspace = Backbone.Router.extend({
 
@@ -54,7 +57,9 @@ $(function() {
       "" : "index",
       "about" : "about", // #help
       "contact" : "contact",
-      "user" : "user",
+      "user" : "home",
+      "user/:username" : "user",
+      "group/:groupname" : "group",
       "app/*xy" : "hi",
       "search/:query" : "search", // #search/kiwis
       "search/:query/p:page" : "search" // #search/kiwis/p7
@@ -76,16 +81,23 @@ $(function() {
       },
       about : function() {
 	NavHighlightView.view("about");
+	stich("#contentBody","index.html");
       },
       contact : function() {
 	NavHighlightView.view("contact");
       },
-      user:function() 
+      user:function(name) {
+	stich("#contentBody","user.html",{name:name,img:"images/pic.jpg"});
+      },
+      group:function(name) {
+	stich("#contentBody","group.html",{name:"GameDev",location:"Wuppertal"});
+      },
+      home:function() 
       {
 	this.frame();
 	NavHighlightView.view("index");
-	$.get("user.html",function(result){
-	  $("#contentBody").html(result);});
+	stich("#contentBody","home.html",{friends:[{name:"Purple",img:"photo.jpg"},{name:"Godrin",img:"pic.jpg"}],
+	groups:[{name:"Gamedev",location:"Wuppertal"},{name:"GoJabz",location:"Germany"}]});
       },
       frame:function() {
 

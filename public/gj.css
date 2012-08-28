@@ -1,0 +1,73 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+
+  background-image: linear-gradient(left , rgb(242,187,24) 6%, rgb(255,255,255) 44%);
+  background-image: -o-linear-gradient(left , rgb(242,187,24) 6%, rgb(255,255,255) 44%);
+  background-image: -moz-linear-gradient(left , rgb(242,187,24) 6%, rgb(255,255,255) 44%);
+  background-image: -webkit-linear-gradient(left , rgb(242,187,24) 6%, rgb(255,255,255) 44%);
+  background-image: -ms-linear-gradient(left , rgb(242,187,24) 6%, rgb(255,255,255) 44%);
+
+  background-image: -webkit-gradient(
+  linear,
+  left top,
+  right top,
+  color-stop(0.06, rgb(242,187,24)),
+  color-stop(0.44, rgb(255,255,255))
+  );
+}
+p {
+  text-align:justify;
+}
+.friendlist li {
+  list-style-type: none;
+  margin-bottom:5px;
+  background-color:white;
+  width:90px;
+  font-weight:bold;
+  text-align:center;
+  margin-left:0px;
+  padding-left:0px;
+}
+.friendlist img {
+  width:90px;
+  height:90px;
+}
+.friendlist {
+  margin-left:0px;
+}
+
+ul.groups {
+  margin-left:0px;
+}
+.groups li {
+ list-style-type: none;
+ padding:1px;
+
+}
+.groups li:hover {
+  padding:0px;
+  border:1px solid #DDD;
+}
+
+.location {
+  color:grey;
+  font-size:90%;
+}
+.user {
+  float:right;
+  position:relative;
+}
+.user img {
+  width:45px;
+  height:45px;
+}
+.user .name {
+  position:absolute;
+  bottom:0px;
+  text-shadow:1px 1px 0px white,-1px 1px 0px white, -1px -1px 0px white,1px -1px 0px white;
+  font-weight:bold;
+}
+
+
+

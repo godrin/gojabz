@@ -5,12 +5,23 @@ require './models.rb'
 
 set :public_folder,'public'
 
+Person=Struct.new(:name,:img,:location)
+persons=[Person.new("Godrin","image/photo.jpg","Wtal"),
+  Person.new("Purple","image/pic.jpg","Germany")]
+class Person
+  def to_json(*)
+    {:name=>name,:img=>img,:location=>location}.to_json
+  end
+end
+
 get '/' do
   redirect '/index.html'
 end
+
 get '/friends' do
   content_type :json
-  "HI"
+  persons.to_json
+  #{:name=>"Godrin",:location=>"Wtal"}.to_json
 end
 
 get '/seed' do

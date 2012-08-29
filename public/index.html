@@ -6,8 +6,10 @@
     <script type='text/javascript' src='jquery-1.7.1.min.js'></script>
     <script type='text/javascript' src='underscore.js'></script>
     <script type='text/javascript' src='backbone.js'></script>
-    <script type='text/javascript' src='prototype_main.js'></script>
     <script type='text/javascript' src='mustache.js'></script>
+    <script language='javascript' src='start_page.js'></script>
+    <script type='text/javascript' src='prototype_main.js'></script>
+    <script language='javascript' src='require.js' data-main="main"></script>
     <link href="gj.css" rel="stylesheet">
   <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,8 +40,8 @@
 	      </li>
 	    </ul>
 	    <form class="navbar-form pull-right" id='signIn'>
-	      <input class="span2" type="text" placeholder="Email">
-	      <input class="span2" type="password" placeholder="Password">
+	      <input class="span2" name='email' type="text" placeholder="Email">
+	      <input class="span2" name='password' type="password" placeholder="Password">
 	      <button type="submit" class="btn">Login</button>
 	    </form>
 	  </div><!--/.nav-collapse -->

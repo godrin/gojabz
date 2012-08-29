@@ -1,11 +1,5 @@
 $(function() {
 
-  $("#signIn").submit(function() {
-    location.href="#user";
-    $("#signIn").hide();
-    return false;
-  });
-
   function initiate_geolocation() {
     navigator.geolocation.getCurrentPosition(handle_geolocation_query);
   }
@@ -78,6 +72,7 @@ $(function() {
       },
       index : function() {
 	NavHighlightView.view("index");
+	StartPage.init(this);
       },
       about : function() {
 	NavHighlightView.view("about");
@@ -97,13 +92,13 @@ $(function() {
 	this.frame();
 	NavHighlightView.view("index");
 	stich("#contentBody","home.html",{friends:[{name:"Purple",img:"photo.jpg"},{name:"Godrin",img:"pic.jpg"}],
-	groups:[{name:"Gamedev",location:"Wuppertal"},{name:"GoJabz",location:"Germany"}]});
+	  groups:[{name:"Gamedev",location:"Wuppertal"},{name:"GoJabz",location:"Germany"}]});
       },
       frame:function() {
 
       }
   });
-  new Workspace();
+  window.Workspace=new Workspace();
   Backbone.history.start();
 
 

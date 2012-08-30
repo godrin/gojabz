@@ -65,6 +65,9 @@ define([ "sha256" ], function(sha256) {
 		name : function() {
 			if (loggedIn)
 				return name;
+		},
+		loggedIn:function() {
+		  return loggedIn;
 		}
 	};
 	return user;

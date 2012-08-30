@@ -1,16 +1,30 @@
-define(["view/nav_light","view/contact"],function(NavHighlightView,ContactView) {
+define(["view/nav_light","view/contact","model/user"],function(NavHighlightView,ContactView,UserModel) {
   var body="#contentBody";
 
   var page=function() {
     var pagesLoaded={};
+
+    function insertTemplate(result) {
+      $(result).appendTo($("head"));
+                ich.refresh();
+    }
+
     return function(name,callback) {
       if(pagesLoaded[name]) {
 	return callback();
       }
-      $.get("/templates/"+name+".html",function(result) {
-	$(result).appendTo($("head"));
-	ich.refresh();
-	callback();
+      require(["pages/"+name],function(page) {
+	console.log("PaGE",page);
+	if(pagesLoaded[page]) {
+	  insertTemplate(pagesLoaded[page]);
+	  return callback();
+	}
+
+	$.get("/templates/"+name+".html",function(result) {
+	  pagesLoaded[page]=result;
+	  insertTemplate(result);
+	  callback();
+	});
       });
     };
   }();
@@ -40,6 +54,8 @@ define(["view/nav_light","view/contact"],function(NavHighlightView,ContactView) 
 	console.log("search");
       },
       index : function() {
+	if(UserModel.loggedIn())
+	  console.log("Logged in");
 	NavHighlightView.view("index");
 	StartPage.init(this);
       },

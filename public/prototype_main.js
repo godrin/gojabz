@@ -28,12 +28,6 @@ $(function() {
     });
   }
   load_gmap();
-  var NavHighlightView= {
-    view:function(name) {
-      $(".nav li").removeClass('active');
-      $(".nav li[key='"+name+"']").addClass('active');
-    }
-  };
 
   // get template, use mustache and put into el
   window.stich=function(el,file,model) {
@@ -44,64 +38,6 @@ $(function() {
       $(el).html(Mustache.render(result,model));
     });
   };
-
-  var Workspace = Backbone.Router.extend({
-
-    routes : {
-      "" : "index",
-      "about" : "about", // #help
-      "contact" : "contact",
-      "user" : "home",
-      "user/:username" : "user",
-      "group/:groupname" : "group",
-      "app/*xy" : "hi",
-      "search/:query" : "search", // #search/kiwis
-      "search/:query/p:page" : "search" // #search/kiwis/p7
-    },
-      hi : function() {
-	console.log("HI", arguments);
-	// alert("HI");
-      },
-
-      help : function() {
-	console.log("help func");
-      },
-
-      search : function(query, page) {
-	console.log("search");
-      },
-      index : function() {
-	NavHighlightView.view("index");
-	StartPage.init(this);
-      },
-      about : function() {
-	NavHighlightView.view("about");
-	stich("#contentBody","index.html");
-      },
-      contact : function() {
-	NavHighlightView.view("contact");
-      },
-      user:function(name) {
-	stich("#contentBody","user.html",{name:name,img:"images/pic.jpg"});
-      },
-      group:function(name) {
-	stich("#contentBody","group.html",{name:"GameDev",location:"Wuppertal"});
-      },
-      home:function() 
-      {
-	this.frame();
-	NavHighlightView.view("index");
-	stich("#contentBody","home.html",{friends:[{name:"Purple",img:"photo.jpg"},{name:"Godrin",img:"pic.jpg"}],
-	  groups:[{name:"Gamedev",location:"Wuppertal"},{name:"GoJabz",location:"Germany"}]});
-      },
-      frame:function() {
-
-      }
-  });
-  window.Workspace=new Workspace();
-  Backbone.history.start();
-
-
 
 
 });

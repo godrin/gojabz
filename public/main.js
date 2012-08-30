@@ -1,5 +1,5 @@
 /* main */
-require(["model/friends"],function(friends) {
+require(["model/friends","view/contact","router"],function(friends,contact,router) {
   /*
      persons.bind("change",function(x) {
      console.log("CHANGE",x);
